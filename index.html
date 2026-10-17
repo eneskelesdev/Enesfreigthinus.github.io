@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <style>
@@ -26,8 +26,8 @@
         --faint: #91918b;
         --line: #deded9;
         --line-strong: #c9c9c2;
-        --accent: #315f53;
-        --accent-hover: #234a40;
+        --accent: #4382DF;
+        --accent-hover: #326DCA;
         --radius: 10px;
       }
 
@@ -41,8 +41,8 @@
         --faint: #77776f;
         --line: #30302d;
         --line-strong: #494943;
-        --accent: #a7cabc;
-        --accent-hover: #c1ddd2;
+        --accent: #4382DF;
+        --accent-hover: #669BE6;
       }
 
       * {
@@ -57,12 +57,10 @@
         margin: 0;
         min-height: 100vh;
         font-family:
-          "Inter",
-          system-ui,
-          -apple-system,
-          BlinkMacSystemFont,
-          "Segoe UI",
-          sans-serif;
+          "Lora",
+          Georgia,
+          "Times New Roman",
+          serif;
         background: var(--page);
         color: var(--text);
         line-height: 1.65;
@@ -76,7 +74,6 @@
         position: sticky;
         top: 0;
         z-index: 10;
-        border-bottom: 1px solid var(--line);
         background: color-mix(in srgb, var(--page) 92%, transparent);
         backdrop-filter: blur(10px);
       }
@@ -86,7 +83,7 @@
         align-items: center;
         justify-content: space-between;
         gap: 1rem;
-        width: min(1000px, calc(100% - 6rem));
+        width: min(880px, calc(100% - 6rem));
         min-height: 64px;
         margin: 0 auto;
       }
@@ -170,27 +167,33 @@
       }
 
       main {
-        width: min(1000px, calc(100% - 6rem));
+        width: min(880px, calc(100% - 6rem));
         margin: 0 auto;
+        text-align: left;
       }
 
       .hero {
         display: grid;
-        grid-template-columns: minmax(0, 8fr) minmax(140px, 3fr);
+        grid-template-columns: minmax(0, 1fr);
         gap: 2rem;
         align-items: end;
         min-height: 360px;
         padding: clamp(4rem, 9vw, 6.5rem) 0 clamp(3.5rem, 6vw, 4.5rem);
       }
 
+      .hero > div {
+        width: min(100%, 70ch);
+        margin-inline: auto;
+      }
+
       .eyebrow {
         width: fit-content;
         margin: 0 0 1.1rem;
         color: var(--accent);
-        font-size: 0.86rem;
+        font-size: 1.29rem;
         font-weight: 500;
         letter-spacing: 0.04em;
-        text-transform: uppercase;
+        text-transform: none;
       }
 
       h3,
@@ -210,10 +213,8 @@
       .social-row {
         display: flex;
         flex-wrap: wrap;
+        justify-content: flex-start;
         gap: 1rem;
-      }
-
-      .hero-actions {
       }
 
       .button {
@@ -257,7 +258,6 @@
       .section {
         scroll-margin-top: 98px;
         padding: clamp(4.5rem, 9vw, 7rem) 0;
-        border-top: 1px solid var(--line);
       }
 
       .section-header {
@@ -265,8 +265,13 @@
         grid-template-columns: 1fr;
         gap: 0.55rem;
         align-items: start;
-        margin-bottom: 2rem;
+        margin: 0 auto 2rem;
         max-width: 70ch;
+      }
+
+      .section-header > div {
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid var(--line);
       }
 
       .section-kicker {
@@ -275,7 +280,7 @@
         font-size: 0.72rem;
         font-weight: 600;
         letter-spacing: 0.08em;
-        text-transform: uppercase;
+        text-transform: none;
       }
 
       .section-header p {
@@ -296,7 +301,8 @@
       }
 
       .about-copy {
-        max-width: 62ch;
+        max-width: 70ch;
+        margin-inline: auto;
         padding: 0;
       }
 
@@ -306,7 +312,8 @@
 
       .timeline {
         display: grid;
-        border-top: 1px solid var(--line);
+        max-width: 70ch;
+        margin-inline: auto;
       }
 
       .experience-item {
@@ -314,7 +321,6 @@
         grid-template-columns: minmax(140px, 0.24fr) minmax(0, 0.76fr);
         gap: 2rem;
         padding: 1.7rem 0;
-        border-bottom: 1px solid var(--line);
       }
 
       .date {
@@ -345,17 +351,16 @@
 
       .project-grid {
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 0;
-        border-top: 1px solid var(--line);
+        grid-template-columns: minmax(0, 1fr);
+        max-width: 70ch;
+        margin-inline: auto;
+        gap: 1rem;
       }
 
       .project-card {
         display: flex;
         flex-direction: column;
-        min-height: 300px;
-        padding: 2rem;
-        border-bottom: 1px solid var(--line);
+        padding: 1.7rem 0;
         transition:
         background 180ms ease,
         transform 180ms ease;
@@ -365,26 +370,12 @@
         background: var(--surface);
       }
 
-      .project-card:nth-child(odd) {
-        border-right: 1px solid var(--line);
-      }
-
-      .project-card.featured {
-        min-height: 360px;
-      }
-
-      .project-card.featured h3 {
-        max-width: 15ch;
-        font-size: clamp(1.5rem, 2.6vw, 2rem);
-        line-height: 1.12;
-      }
-
       .project-type {
         display: flex;
         align-items: center;
         justify-content: space-between;
         gap: 0.75rem;
-        margin-bottom: 2.5rem;
+        margin-bottom: 0.75rem;
       }
 
       .project-number {
@@ -392,10 +383,6 @@
         font-size: 0.76rem;
         font-weight: 600;
         letter-spacing: 0.08em;
-      }
-
-      .project-card p {
-        flex: 1;
       }
 
       .tech-list {
@@ -437,6 +424,8 @@
       .contact-panel {
         display: grid;
         grid-template-columns: minmax(0, 0.8fr) minmax(260px, 0.45fr);
+        max-width: 70ch;
+        margin-inline: auto;
         gap: 4rem;
         align-items: stretch;
       }
@@ -459,10 +448,10 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        flex-wrap: wrap;
         gap: 1rem;
         min-height: 52px;
         padding: 0.8rem 0;
-        border-bottom: 1px solid var(--line);
         color: var(--text);
         font-size: 0.9rem;
         font-weight: 600;
@@ -471,7 +460,24 @@
           color 180ms ease;
       }
 
-      .contact-link span {
+      .contact-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+      }
+
+      .contact-icon {
+        width: 1.1rem;
+        height: 1.1rem;
+        flex-shrink: 0;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.7;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .contact-value {
         color: var(--muted);
         font-size: 0.86rem;
         font-weight: 700;
@@ -483,10 +489,9 @@
       }
 
       footer {
-        width: min(1000px, calc(100% - 6rem));
+        width: min(880px, calc(100% - 6rem));
         margin: 0 auto;
         padding: 1.5rem 0 2.5rem;
-        border-top: 1px solid var(--line);
         color: var(--muted);
         font-size: 0.92rem;
       }
@@ -520,13 +525,6 @@
           padding-top: 4.5rem;
         }
 
-        .project-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .project-card:nth-child(odd) {
-          border-right: 0;
-        }
       }
 
       @media (max-width: 620px) {
@@ -545,7 +543,7 @@
           gap: 0.5rem;
         }
 
-        .project-card { padding: 1.5rem 0; min-height: 0; }
+        .project-card { padding: 1.5rem 0; }
       }
     </style>
   </head>
@@ -576,7 +574,7 @@
     <main id="top">
       <section class="hero" aria-label="Introduction">
         <div>
-          <p class="eyebrow">Enes Keles · Software Engineer</p>
+          <p class="eyebrow">Enes Keles</p>
           <p class="lead">
             Software engineer from Turkey. You are very welcome to check out this page. Have a look at my latest project and experience. You can also contact me if you like.
           </p>
@@ -624,27 +622,9 @@
           <div>
             <p class="section-kicker">Experience</p>
           </div>
-          <p>
-            Professional and collaborative project work across administration,
-            software systems, and product-facing interfaces.
-          </p>
         </div>
 
         <div class="timeline">
-          <article class="experience-item">
-            <div class="date">2025 Aug- 2025 Sep</div>
-            <div>
-              <h3>Halk Leasing IT Internship</h3>
-              <p class="meta">Network Administration · Database Management</p>
-              <p>
-                I completed my summer internship in the IT department at Halk
-                Leasing. During that one-month period, I participated in
-                projects focused primarily on network management and security,
-                as well as database systems.
-              </p>
-            </div>
-          </article>
-
           <article class="experience-item">
             <div class="date">Project Work</div>
             <div>
@@ -672,63 +652,47 @@
               </p>
             </div>
           </article>
+          <article class="experience-item">
+            <div class="date">2025 Aug- 2025 Sep</div>
+            <div>
+              <h3>Halk Leasing IT Internship</h3>
+              <p class="meta">Network Administration · Database Management</p>
+              <p>
+                I completed my summer internship in the IT department at Halk
+                Leasing. During that one-month period, I participated in
+                projects focused primarily on network management and security,
+                as well as database systems.
+              </p>
+            </div>
+          </article>
         </div>
       </section>
 
-      <section class="section" id="projects" aria-label="Selected work">
+      <section class="section" id="projects" aria-label="Projects">
         <div class="section-header">
           <div>
-            <p class="section-kicker">Selected Work</p>
+            <p class="section-kicker">Projects</p>
           </div>
-          <p>
-            From full-stack applications to graphics and machine learning,
-            these projects reflect the range of problems I enjoy working on.
-          </p>
         </div>
 
         <div class="project-grid">
-          <article class="project-card featured">
+          <article class="project-card">
             <div class="project-type">
-              <span class="project-number">01 / Web App, LLM</span>
+              <span class="project-number">CLI, Security</span>
             </div>
-            <h3>ChatBot Application</h3>
+            <h3>Kilit</h3>
             <p>
-              secure full-stack chatbot app using: Java Spring Boot, Redis,
-              ReactJS, Docker, Llama3.
+              A local password manager built in Rust, with an encrypted vault for credentials and notes, password generation, and master-password management.
             </p>
             <ul class="tech-list" aria-label="Technologies used">
-              <li>Java</li>
-              <li>Redis</li>
-              <li>Docker</li>
-              <li>LLama3</li>
+              <li>Rust</li>
+              <li>Argon2id</li>
+              <li>XChaCha20-Poly1305</li>
+              <li>CLI</li>
             </ul>
             <a
               class="project-link"
-              href="https://github.com/g4stlyx/chatbot"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View on GitHub
-            </a>
-          </article>
-
-          <article class="project-card featured">
-            <div class="project-type">
-              <span class="project-number">02 / Graphics</span>
-            </div>
-            <h3>Ray Tracer</h3>
-            <p>
-              A multi-threaded C++ ray tracer with uniform grid acceleration and
-              custom synchronization work for rendering performance.
-            </p>
-            <ul class="tech-list" aria-label="Technologies used">
-              <li>C++</li>
-              <li>Multithreading</li>
-              <li>Rendering</li>
-            </ul>
-            <a
-              class="project-link"
-              href="https://github.com/Enesfreigthinus/raytracer"
+              href="https://github.com/eneskelesdev/kilit"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -738,21 +702,46 @@
 
           <article class="project-card">
             <div class="project-type">
-              <span class="project-number">03 / Deep Learning</span>
+              <span class="project-number">Cybersecurity</span>
+            </div>
+            <h3>Home SOC Lab</h3>
+            <p>
+              A two-VM Windows and Kali Linux lab for investigating a disguised executable. Uses Sysmon telemetry and Splunk searches to examine process activity, network connections, and incident evidence.
+            </p>
+            <ul class="tech-list" aria-label="Technologies used">
+              <li>Sysmon</li>
+              <li>Splunk</li>
+              <li>Windows</li>
+              <li>Kali Linux</li>
+              <li>VirtualBox</li>
+            </ul>
+            <a
+              class="project-link"
+              href="https://github.com/eneskelesdev/home-soc-lab"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View on GitHub
+            </a>
+          </article>
+
+          <article class="project-card">
+            <div class="project-type">
+              <span class="project-number">Deep Learning</span>
             </div>
             <h3>Retinal Disease Classifier</h3>
             <p>
-              A deep learning model for detecting retinal disease categories
-              with a ConvNeXt-based classification approach.
+              A multi-label retinal disease classifier using ConvNeXt-Tiny and transfer learning to identify 43 disease categories from fundus images.
             </p>
             <ul class="tech-list" aria-label="Technologies used">
               <li>Python</li>
-              <li>ConvNeXt</li>
-              <li>Deep Learning</li>
+              <li>ConvNeXt-Tiny</li>
+              <li>Transfer Learning</li>
+              <li>Multi-label Classification</li>
             </ul>
             <a
               class="project-link"
-              href="https://github.com/Enesfreigthinus/retinal-disease-classifier"
+              href="https://github.com/eneskelesdev/retinal-disease-classifier"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -762,21 +751,20 @@
 
           <article class="project-card">
             <div class="project-type">
-              <span class="project-number">04 / Machine Learning</span>
+              <span class="project-number">Machine Learning</span>
             </div>
             <h3>Twitter Sentiment Analysis</h3>
             <p>
-              A machine learning project that predicts sentiment from tweet text
-              and explores natural language processing techniques.
+              A Python machine learning project that predicts sentiment from tweet text using natural language processing.
             </p>
             <ul class="tech-list" aria-label="Technologies used">
               <li>Python</li>
               <li>NLP</li>
-              <li>ML</li>
+              <li>Machine Learning</li>
             </ul>
             <a
               class="project-link"
-              href="https://github.com/Enesfreigthinus/twitter-sentiment-analysis"
+              href="https://github.com/eneskelesdev/twitter-Sentiment-Analysis"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -786,43 +774,46 @@
 
           <article class="project-card">
             <div class="project-type">
-              <span class="project-number">05 / Web App</span>
+              <span class="project-number">Computer Graphics</span>
             </div>
-            <h3>File Converter Client</h3>
+            <h3>Ray Tracer</h3>
             <p>
-              A file converter web application client that allows users to
-              convert files between different formats using a backend API.
+              A C++17 ray tracer with multithreaded rendering and uniform-grid spatial acceleration, designed to render scenes containing thousands of spheres.
             </p>
             <ul class="tech-list" aria-label="Technologies used">
-              <li>TypeScript</li>
-              <li>Web UI</li>
+              <li>C++17</li>
+              <li>Multithreading</li>
+              <li>Uniform Grid</li>
+              <li>Rendering</li>
+            </ul>
+            <a
+              class="project-link"
+              href="https://github.com/eneskelesdev/raytracer"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View on GitHub
+            </a>
+          </article>
+
+          <article class="project-card">
+            <div class="project-type">
+              <span class="project-number">Web App, LLM</span>
+            </div>
+            <h3>Chatbot Application</h3>
+            <p>
+              A full-stack chatbot application combining a React interface with a Java Spring Boot backend, Redis, Docker, and Llama 3.
+            </p>
+            <ul class="tech-list" aria-label="Technologies used">
+              <li>Java Spring Boot</li>
               <li>React</li>
+              <li>Redis</li>
+              <li>Docker</li>
+              <li>Llama 3</li>
             </ul>
             <a
               class="project-link"
-              href="https://github.com/Enesfreigthinus/fileconvy-client"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View on GitHub
-            </a>
-          </article>
-
-          <article class="project-card">
-            <div class="project-type">
-              <span class="project-number">06 / Web App</span>
-            </div>
-            <h3>File Converter Server</h3>
-            <p>
-              A file converter backend service that handles file conversion
-              requests and manages the conversion process.
-            </p>
-            <ul class="tech-list" aria-label="Technologies used">
-              <li>Go</li>
-            </ul>
-            <a
-              class="project-link"
-              href="https://github.com/Enesfreigthinus/fileconvy-server"
+              href="https://github.com/g4stlyx/chatbot"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -843,11 +834,10 @@
           <div class="panel contact-copy">
             <p>
               The fastest way to reach me is by email. You can also find my
-              code on GitHub and connect with me on LinkedIn.
+              GitHub and LinkedIn profiles.
             </p>
             <p>
-              I am open to job offers, collaborations, and freelance work. If
-              you have a project in mind or just want to say hello, feel free to
+              I am open to job offers. Feel free to
               reach out!
             </p>
             <div class="social-row">
@@ -867,8 +857,14 @@
 
           <div class="panel contact-list" aria-label="Contact links">
             <a class="contact-link" href="mailto:eneskelesdev@gmail.com">
-              Email
-              <span>eneskelesdev@gmail.com</span>
+              <span class="contact-label">
+                <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <rect x="3" y="5" width="18" height="14" rx="2" />
+                  <path d="m3 7 9 6 9-6" />
+                </svg>
+                Email
+              </span>
+              <span class="contact-value">eneskelesdev@gmail.com</span>
             </a>
             <a
               class="contact-link"
@@ -876,8 +872,13 @@
               target="_blank"
               rel="noopener noreferrer"
             >
-              GitHub
-              <span>@eneskelesdev</span>
+              <span class="contact-label">
+                <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 19 4.77 5.07 5.07 0 0 0 18.91 1S17.73.65 15 2.48a13.38 13.38 0 0 0-7 0C5.27.65 4.09 1 4.09 1A5.07 5.07 0 0 0 4 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 8 18.13V22" />
+                </svg>
+                GitHub
+              </span>
+              <span class="contact-value">@eneskelesdev</span>
             </a>
             <a
               class="contact-link"
@@ -885,8 +886,15 @@
               target="_blank"
               rel="noopener noreferrer"
             >
-              LinkedIn
-              <span>eneskls</span>
+              <span class="contact-label">
+                <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                  <circle cx="7.5" cy="7.5" r="0.75" />
+                  <path d="M7.5 11v6M11.5 17v-6m0 3a3 3 0 0 1 6 0v3" />
+                </svg>
+                LinkedIn
+              </span>
+              <span class="contact-value">eneskls</span>
             </a>
           </div>
         </div>
